@@ -35,5 +35,5 @@ The easiest way to start using foundation is to use the provided
 
 For a real application, you'll probably want to create you're own
 layout.  Use the provided layout at
-https://github.com/ataylor284/grails-zurb-foundation/blob/master/grails-app/views/foundation.gsp
+https://github.com/ataylor284/grails-zurb-foundation/blob/master/grails-app/views/layouts/foundation.gsp
 as a starting point.
