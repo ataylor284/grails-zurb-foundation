@@ -1,12 +1,23 @@
 def dev = grails.util.GrailsUtil.isDevelopmentEnv()
-def foundationJsFile = dev ? 'foundation/foundation.js' : 'foundation.min.js'
-def foundationCssFile = dev ? 'foundation.css' : 'foundation.min.css'
+def foundationPlugins = [
+    'abide', 'accordion', 'alert', 'clearing', 'dropdown', 'interchange', 
+    'joyride', 'magellan', 'offcanvas', 'orbit', 'reveal', 'tab', 'tooltip',
+    'topbar'
+]
 
 modules = {
     'foundation' {
         dependsOn 'jquery,modernizr'
         defaultBundle false
-        resource url: [plugin: 'zurb-foundation', dir: 'js', file: foundationJsFile], nominify: !dev
-        resource url: [plugin: 'zurb-foundation', dir: 'css', file: foundationCssFile], nominify: !dev
+        if (dev) {
+            resource url: [plugin: 'zurb-foundation', dir: 'css', file: 'foundation.css'], nominify: !dev
+            resource url: [plugin: 'zurb-foundation', dir: 'js/foundation', file: 'foundation.js'], nominify: !dev
+            foundationPlugins.each { plugin ->
+                resource url: [plugin: 'zurb-foundation', dir: 'js/foundation', file: "foundation.${plugin}.js"], nominify: !dev
+            }
+        } else {
+            resource url: [plugin: 'zurb-foundation', dir: 'css', file: 'foundation.min.css'], nominify: !dev
+            resource url: [plugin: 'zurb-foundation', dir: 'js', file: 'foundation.min.js'], nominify: !dev
+        }
     }
 }
