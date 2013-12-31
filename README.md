@@ -1,10 +1,9 @@
 Zurb Foundation for Grails
 ==========================
 
-This plugin provides the [Zurb
-Foundation](http://http://foundation.zurb.com) framework.  Zurb
-Foundation is a responsive design framework designed for building
-mobile-first websites.
+This plugin provides the [Zurb Foundation](http://foundation.zurb.com)
+framework.  Zurb Foundation is a responsive design framework designed
+for building mobile-first websites.
 
 Getting Started
 ---------------
